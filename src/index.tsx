@@ -1,15 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/output.css';
-import App from './pages/app/App';
-import reportWebVitals from './reportWebVitals';
+/** @format */
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/output.css";
+import "leaflet/dist/leaflet.css";
+import "./styles/global.css"
+import App from "./pages/app/App";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Map from "./pages/map/Map";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+
+  {
+    path: "/map",
+    element: <Map />,
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
